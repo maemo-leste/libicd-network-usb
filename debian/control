@@ -1,0 +1,22 @@
+Source: libicd-network-usb
+Priority: optional
+Maintainer: Patrik Flykt <patrik.flykt@nokia.com>
+Build-Depends: debhelper (>> 3.0.0), autotools-dev,
+ libglib2.0-dev (>= 2.8.6-1osso5), libgconf2-dev (>= 2.6.4.14-osso2),
+ icd2-dev (>= 0.37), libicd2-dev (>= 0.1), icd2-osso-ic-dev
+Standards-Version: 3.7.2
+Section: net
+
+Package: libicd-network-usb
+Section: net
+Architecture: any
+Depends: icd2 (>= 0.37), ${shlibs:Depends}
+Description: ICd2 usb network configuration module
+ ICd2 usb network configuration module
+
+Package: libicd-network-usb-dbg
+Section: net
+Architecture: any
+Depends: libicd-network-usb (= ${Source-Version})
+Description: Debug symbols for usb network configuration module
+ Debug symbols for usb network configuration module

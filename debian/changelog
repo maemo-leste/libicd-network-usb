@@ -1,0 +1,6 @@
+libicd-network-usb (0.1) unstable; urgency=low
+
+  * USB network module on dummy network module
+
+ -- Patrik Flykt <patrik.flykt@nokia.com>  Mon, 07 Dec 2009 13:57:00 +0200
+
