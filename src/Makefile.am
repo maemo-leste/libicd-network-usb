@@ -16,4 +16,4 @@ plugin_LTLIBRARIES = \
 	libicd_network_usb.la
 
 libicd_network_usb_la_SOURCES = \
-	libicd_network_usb.c
+	libicd_network_usb.h libicd_network_usb.c
