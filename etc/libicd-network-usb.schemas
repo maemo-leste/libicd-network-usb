@@ -7,7 +7,7 @@
 			<owner>libicd_network_usb</owner>
 			<type>list</type>
 			<list_type>string</list_type>
-			<default>[libicd_network_usb.so libicd_network_ipv4.so]</default>
+			<default>[libicd_network_usb.so,libicd_network_ipv4.so]</default>
 			<locale name="C">
 				<short>USB network module</short>
 				<long>USB network module for ICd2</long>
