@@ -10,7 +10,7 @@ Section: net
 Package: libicd-network-usb
 Section: net
 Architecture: any
-Depends: icd2 (>= 0.37), ${shlibs:Depends}
+Depends: icd2 (>= 0.37), libicd-network-ipv4, ${shlibs:Depends}
 Description: ICd2 usb network configuration module
  ICd2 usb network configuration module
 
