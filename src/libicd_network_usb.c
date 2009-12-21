@@ -23,10 +23,11 @@ gboolean icd_nw_init (struct icd_nw_api *network_api,
 		      icd_nw_close_fn close_cb);
 
 
-/** Check whether the usb interface exists
+/** Check whether the given interface exists
+ * @param ifname the interface name
  * @return TRUE if #USB_NW_INTERFACE is up, FALSE otherwise
  */
-static gboolean usb_if_exists (void)
+static gboolean usb_if_exists (const gchar *ifname)
 {
   int fd;
   struct ifreq iface;
@@ -35,15 +36,9 @@ static gboolean usb_if_exists (void)
   if ((fd = socket (AF_UNIX, SOCK_DGRAM, 0)) < 0)
     return found;
 
-  iface.ifr_ifindex = 1;
-  while (ioctl (fd, SIOCGIFNAME, &iface) == 0) {
-    if (iface.ifr_name != NULL &&
-	strcmp (USB_NW_INTERFACE, iface.ifr_name) == 0) {
-      found = TRUE;
-      break;
-    }
-    iface.ifr_ifindex += 1;
-  }
+  strcpy (iface.ifr_name, ifname);
+  if (ioctl (fd, SIOCGIFINDEX, &iface) == 0)
+    found = TRUE;
 
   close (fd);
   return found;
@@ -65,14 +60,12 @@ static void usb_link_up (const gchar *network_type,
 			   const gpointer link_up_cb_token,
 			   gpointer *private)
 {
-  if (usb_if_exists ()) {
-    ILOG_DEBUG ("usb nw link up");
+  if (usb_if_exists (USB_NW_INTERFACE)) {
     link_up_cb (ICD_NW_SUCCESS,
 		NULL,
 		USB_NW_INTERFACE,
 		link_up_cb_token, NULL);
   } else {
-    ILOG_DEBUG ("usb nw link is down");
     link_up_cb (ICD_NW_ERROR,
 		NULL,
 		NULL,
@@ -99,8 +92,7 @@ static void usb_start_search (const gchar *network_type,
   gboolean settings_autoconnect;
 
 
-  if (usb_if_exists()) {
-    ILOG_DEBUG ("usb nw start search");
+  if (usb_if_exists(USB_NW_INTERFACE)) {
 
     gconf_client = gconf_client_get_default();
     list = gconf_client_all_dirs (gconf_client,
@@ -157,8 +149,7 @@ static void usb_start_search (const gchar *network_type,
       list = g_slist_delete_link (list, list);
     }
     g_object_unref (gconf_client);
-  } else
-    ILOG_DEBUG ("usb nw no device for search");
+  }
 
   search_cb (ICD_NW_SEARCH_COMPLETE,
 	     NULL,
