@@ -1,0 +1,34 @@
+libicd-network-usb
+==================
+
+libicd-network-usb provides a network module for ICd2 that controls USB network
+devices. The network module will look up the interface index for a network
+interface named 'usb0'. Thus the module will detect the presence of an USB
+network as long as the g_nokia kernel module is loaded. It will also work if
+the device is in host mode, has a USB ethernet dongle attached and proper
+kernel modules loaded for that ethernet dongle.
+
+When a network scan is performed by icd2, the USB network module will list all
+networks configured in GConf with of type 'USB', provided that the 'usb0'
+network interface is found. When a USB network is selected from the 'Select
+connection' dialog, the same check for 'usb0' will be performed and success
+reported to icd2. Thus the next network module, in this case
+libicd-network-ipv4 will be run, which then will attempt to configure an
+IPv4 address using DHCP by default. It is up to the other end - PC or real
+network - to provide the required DHCP server.
+
+For the USB nework to work, it needs to be added to GConf with:
+gconftool-2 -s -t string /system/osso/connectivity/IAP/<configname>/type USB
+gconftool-2 -s -t string /system/osso/connectivity/IAP/<configname>/name 'Usb network'
+
+Optionally it is possible to set the autoconnect flag with:
+gconftool-2 -s -t boolean /system/osso/connectivity/IAP/<configname>/autoconnect true
+
+libicd-network-ipv4 will work normally, i.e. use its IP configuration options
+from the same /system/osso/connectivity/IAP/<configname>/ GConf path. The
+connectivity UI seems to try to configure a WLAN network connection if the
+settings are edited in the control panel in Fremantle. IP address selection
+parameters are located behind the 'Advanced' button on the last page. After any
+editing via the UI please check that the network type is properly (re)set to
+'USB' by using the command above. Any other WLAN configuration items left in
+GConf are ignored by the USB network module.
