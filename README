@@ -3,10 +3,11 @@ libicd-network-usb
 
 libicd-network-usb provides a network module for ICd2 that controls USB network
 devices. The network module will look up the interface index for a network
-interface named 'usb0'. Thus the module will detect the presence of an USB
-network as long as the g_nokia kernel module is loaded. It will also work if
-the device is in host mode, has a USB ethernet dongle attached and proper
-kernel modules loaded for that ethernet dongle.
+interface named 'usb0'. The USB network interface is enabled by attaching an
+USB cable and selecting 'PC Suite mode'. The module will detect the presence
+of an USB network as long as the g_nokia kernel module is loaded. It will also
+work if the device is in host mode, has a USB ethernet dongle attached and
+proper kernel modules loaded for that ethernet dongle.
 
 When a network scan is performed by icd2, the USB network module will list all
 networks configured in GConf with of type 'USB', provided that the 'usb0'
