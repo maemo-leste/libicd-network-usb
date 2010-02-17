@@ -1,3 +1,10 @@
+libicd-network-usb (0.2) unstable; urgency=low
+
+  * Fixed leftover dependency preventing build discovered by
+    thresh[at]altlinux.ru.
+
+ -- Patrik Flykt <patrik.flykt@nokia.com>  Wed, 17 Feb 2010 13:09:32 +0200
+
 libicd-network-usb (0.1) unstable; urgency=low
 
   * USB network module based on dummy network module

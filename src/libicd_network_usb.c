@@ -34,7 +34,6 @@
 
 #include <osso-ic-gconf.h>
 #include <network_api.h>
-#include <icd_log.h>
 
 #include "libicd_network_usb.h"
 

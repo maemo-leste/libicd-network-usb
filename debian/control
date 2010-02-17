@@ -3,7 +3,7 @@ Priority: optional
 Maintainer: Patrik Flykt <patrik.flykt@nokia.com>
 Build-Depends: debhelper (>> 3.0.0), autotools-dev,
  libglib2.0-dev (>= 2.8.6-1osso5), libgconf2-dev (>= 2.6.4.14-osso2),
- icd2-dev (>= 0.37), libicd2-dev (>= 0.1), icd2-osso-ic-dev
+ icd2-dev (>= 0.37), icd2-osso-ic-dev
 Standards-Version: 3.7.2
 Section: net
 
