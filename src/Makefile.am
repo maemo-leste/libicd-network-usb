@@ -5,7 +5,6 @@ INCLUDES = \
 	@GLIB_CFLAGS@ \
 	@GCONF_CFLAGS@ \
 	@ICD2_CFLAGS@ \
-	@LIBICD2_CFLAGS@ \
 	@OSSO_IC_DEV_CFLAGS@
 
 LDFLAGS = -avoid-version

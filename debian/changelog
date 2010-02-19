@@ -1,3 +1,9 @@
+libicd-network-usb (0.3) unstable; urgency=low
+
+  * Fix one more leftover autoconf dependency
+
+ -- Patrik Flykt <patrik.flykt@nokia.com>  Fri, 19 Feb 2010 09:36:41 +0200
+
 libicd-network-usb (0.2) unstable; urgency=low
 
   * Fixed leftover dependency preventing build discovered by
