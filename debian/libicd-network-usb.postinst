@@ -20,9 +20,6 @@ set -e
 
 case "$1" in
     configure)
-	# dh_gconf isn't working so we'll do it manually instead
-	gconftool-2 --install-schema-file=/etc/gconf/schemas/libicd-network-usb.schemas
-
 	echo "Support for the first usb network interface (usb0), if any"
 	echo
 	echo "Add an USB network with:"

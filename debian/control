@@ -13,10 +13,3 @@ Architecture: any
 Depends: icd2 (>= 0.37), libicd-network-ipv4, ${shlibs:Depends}
 Description: ICd2 usb network configuration module
  ICd2 usb network configuration module
-
-Package: libicd-network-usb-dbg
-Section: net
-Architecture: any
-Depends: libicd-network-usb (= ${Source-Version})
-Description: Debug symbols for usb network configuration module
- Debug symbols for usb network configuration module
