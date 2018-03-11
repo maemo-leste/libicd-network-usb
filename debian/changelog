@@ -1,3 +1,9 @@
+libicd-network-usb (0.3.1) unstable; urgency=medium
+
+  * Port to debhelper 9 [Ivaylo Dimitrov]
+
+ -- Ivan J. <parazyd@dyne.org>  Sun, 11 Mar 14:05:40 +0100
+
 libicd-network-usb (0.3) unstable; urgency=low
 
   * Fix one more leftover autoconf dependency
